@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-bg-dark: #080B12;
+  --color-accent-violet: #8B5CF6;
+  --color-accent-cyan: #22D3EE;
+  --color-text-primary: #F5F7FF;
+  --color-text-secondary: #9CA3AF;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: #080B12;
+  color: #F5F7FF;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080B12;
+}
+::-webkit-scrollbar-thumb {
+  background: #1F293D;
+  border-radius: 9999px;
+  border: 2px solid #080B12;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(13, 18, 30, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-subtle {
+  background: rgba(17, 24, 39, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-glow {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  box-shadow: 0 0 30px -10px rgba(139, 92, 246, 0.2);
+}
+
+.glow-violet {
+  box-shadow: 0 0 35px -5px rgba(139, 92, 246, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 35px -5px rgba(34, 211, 238, 0.35);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #F5F7FF 0%, #E2E8F0 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 35%, #22D3EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #22D3EE 0%, #38BDF8 60%, #818CF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle grid mesh background */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+}
+
+/* Pulse radar effect */
+@keyframes pulseRadar {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-radar {
+  animation: pulseRadar 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-1deg);
+  }
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+/* ===================================================
+   CINEMATIC AURORA & LIGHT WAVE KEYFRAMES (GPU ACCELERATED)
+   =================================================== */
+
+/* Aurora Orb 1: Violet Primary Drift */
+@keyframes auroraDrift1 {
+  0% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+    opacity: 0.28;
+  }
+  33% {
+    transform: translate3d(60px, -45px, 0) scale(1.12);
+    opacity: 0.36;
+  }
+  66% {
+    transform: translate3d(-35px, 35px, 0) scale(0.94);
+    opacity: 0.24;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+    opacity: 0.28;
+  }
+}
+
+.animate-aurora-1 {
+  animation: auroraDrift1 20s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Aurora Orb 2: Cyan Secondary Drift */
+@keyframes auroraDrift2 {
+  0% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+    opacity: 0.22;
+  }
+  38% {
+    transform: translate3d(-70px, 50px, 0) scale(1.18);
+    opacity: 0.32;
+  }
+  72% {
+    transform: translate3d(45px, -30px, 0) scale(0.92);
+    opacity: 0.18;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+    opacity: 0.22;
+  }
+}
+
+.animate-aurora-2 {
+  animation: auroraDrift2 25s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Aurora Orb 3: Deep Blue / Indigo Drift */
+@keyframes auroraDrift3 {
+  0% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+    opacity: 0.18;
+  }
+  45% {
+    transform: translate3d(50px, 60px, 0) scale(1.15);
+    opacity: 0.28;
+  }
+  80% {
+    transform: translate3d(-40px, -40px, 0) scale(0.96);
+    opacity: 0.16;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+    opacity: 0.18;
+  }
+}
+
+.animate-aurora-3 {
+  animation: auroraDrift3 28s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Aurora Orb 4: Subtle Teal Lower Ambient */
+@keyframes auroraDrift4 {
+  0% {
+    transform: translate3d(0px, 0px, 0) scale(0.95);
+    opacity: 0.14;
+  }
+  50% {
+    transform: translate3d(-60px, -45px, 0) scale(1.1);
+    opacity: 0.24;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0) scale(0.95);
+    opacity: 0.14;
+  }
+}
+
+.animate-aurora-4 {
+  animation: auroraDrift4 22s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Flowing Light Wave Horizontal Motion */
+@keyframes waveFlowSlow {
+  0% {
+    transform: translate3d(-10%, 0, 0);
+  }
+  50% {
+    transform: translate3d(5%, -15px, 0);
+  }
+  100% {
+    transform: translate3d(-10%, 0, 0);
+  }
+}
+
+.animate-wave-flow {
+  animation: waveFlowSlow 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Flowing Light Wave Secondary Reverse */
+@keyframes waveFlowReverse {
+  0% {
+    transform: translate3d(5%, 0, 0) scaleY(1);
+  }
+  50% {
+    transform: translate3d(-8%, 12px, 0) scaleY(1.15);
+  }
+  100% {
+    transform: translate3d(5%, 0, 0) scaleY(1);
+  }
+}
+
+.animate-wave-reverse {
+  animation: waveFlowReverse 21s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Breathing Technical Grid */
+@keyframes gridBreathe {
+  0%, 100% {
+    opacity: 0.035;
+  }
+  50% {
+    opacity: 0.075;
+  }
+}
+
+.animate-grid-breathe {
+  animation: gridBreathe 10s ease-in-out infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
